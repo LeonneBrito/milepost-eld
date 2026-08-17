@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: 'Overpass', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --color-ink-900: #0c0e10; /* page — cold near-black, matte dash plastic */
+  --color-ink-800: #15181c; /* card / panel */
+  --color-ink-700: #1e2227; /* raised, hover */
+  --color-line: #2a2f36; /* hairline */
+  --color-fg: #e8ebed;
+  --color-fg-muted: #8b959e;
+  --color-fg-dim: #5c666f;
+
+  --color-amber: #f0a020; /* DOT cab marker-light amber — the one accent */
+  --color-alert: #e8593c; /* clock at its legal limit */
+
+  --color-paper: #f2efe6; /* log sheet surface */
+  --color-ink: #16255a; /* FMCSA navy — the pen */
+}
+
+@layer base {
+  * {
+    border-color: var(--color-line);
+  }
+
+  body {
+    background-color: var(--color-ink-900);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+  }
+
+  ::selection {
+    background-color: var(--color-amber);
+    color: var(--color-ink-900);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-amber);
+    outline-offset: 2px;
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-sheet {
+    page-break-after: always;
+    break-after: page;
+  }
+
+  .print-sheet:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+
+  @page {
+    size: letter landscape;
+    margin: 0.4in;
+  }
+}
