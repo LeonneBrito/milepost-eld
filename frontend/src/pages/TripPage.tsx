@@ -72,7 +72,7 @@ export function TripPage() {
         )}
 
         <div className="no-print grid gap-px border-b border-line bg-line lg:grid-cols-[3fr_2fr]">
-          <div className="h-70 bg-ink-800 lg:h-100">
+          <div className="h-70 overflow-hidden bg-ink-800 lg:h-100">
             <RouteMap
               geometry={trip.route.geometry}
               stops={trip.stops}
@@ -80,7 +80,7 @@ export function TripPage() {
               onHoverStop={setHoveredStopSequence}
             />
           </div>
-          <div className="h-70 bg-ink-800 lg:h-100">
+          <div className="h-70 overflow-hidden bg-ink-800 lg:h-100">
             <StopTimeline
               stops={trip.stops}
               hoveredStopSequence={hoveredStopSequence}

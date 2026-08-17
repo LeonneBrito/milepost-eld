@@ -10,7 +10,7 @@ interface StopTimelineProps {
 
 export function StopTimeline({ stops, hoveredStopSequence, onHoverStop }: StopTimelineProps) {
   return (
-    <ol className="flex flex-col gap-0.5 overflow-y-auto p-2">
+    <ol className="flex h-full flex-col gap-0.5 overflow-y-auto p-2">
       {stops.map((stop, i) => (
         <li key={stop.sequence}>
           <button
