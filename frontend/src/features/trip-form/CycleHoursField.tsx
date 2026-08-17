@@ -25,7 +25,7 @@ export function CycleHoursField({ value, onChange, onBlur, error }: CycleHoursFi
           value={value}
           onChange={(e) => onChange(Number(e.target.value))}
           onBlur={onBlur}
-          className="h-8 w-20 text-right font-mono tabular-nums"
+          className="h-8 w-24 px-2 text-right font-mono tabular-nums [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
           aria-describedby="cycle-hours-hint"
         />
       </div>
