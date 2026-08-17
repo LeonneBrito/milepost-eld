@@ -139,12 +139,12 @@ swapped via settings without touching call sites.
 
 ## Deployment
 
-Backend → **Render** (see `render.yaml` at the repo root), frontend →
-**Vercel**. A long-running Django service is a poor fit for Vercel's
-serverless model; Render (or Railway/Fly) is simpler and gives a free
-Postgres instance. `Procfile` runs migrations on release and serves via
-Gunicorn; static files are served by WhiteNoise so no separate static host
-is needed.
+Backend → **Render** (see `render.yaml` at the repo root, which also
+provisions the frontend static site and the Postgres database as a single
+Blueprint). A long-running Django service is a poor fit for Vercel's
+serverless model; Render is simpler and gives a free Postgres instance.
+`Procfile` runs migrations on release and serves via Gunicorn; static files
+are served by WhiteNoise so no separate static host is needed.
 
 Required env vars in production: `SECRET_KEY`, `ALLOWED_HOSTS`,
 `CORS_ALLOWED_ORIGINS` (set to the deployed frontend origin, not `*`),
